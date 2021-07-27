@@ -1,0 +1,9 @@
+for %%v in ("*.jpg") do (
+	mkdir "%%~nv"
+	copy "%%v" "%%~nv\%%~nv-original.jpg"
+	magick convert "%%v" -resize 8%% -quality 30 "%%~nv/%%~nv-thumb.jpg"
+	magick convert "%%v" -resize 16%% -quality 40 "%%~nv/%%~nv-small.jpg"
+	magick convert "%%v" -resize 30%% -quality 50 "%%~nv/%%~nv-medium.jpg"
+	magick convert "%%v" -resize 50%% -quality 60 "%%~nv/%%~nv-large.jpg"
+)
+Pause
