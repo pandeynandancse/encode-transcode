@@ -1,0 +1,9 @@
+for %%v in ("*.mp4") do (
+	mkdir "%%~nv"
+	ffmpeg -y -i "%%v" -s 320x180 -y -strict experimental -acodec aac -ab 64k -ac 2 -ar 48000 -vcodec libx264 -vprofile baseline -level 30 -g 48 -b 200000 -threads 64 "%%~nv\%%~nv-180p.mp4"
+	ffmpeg -y -i "%%v" -s 426x240 -y -strict experimental -acodec aac -ab 64k -ac 2 -ar 48000 -vcodec libx264 -vprofile baseline -level 30 -g 48 -b 200000 -threads 64 "%%~nv\%%~nv-240p.mp4"
+	ffmpeg -y -i "%%v" -s 640x360 -y -strict experimental -acodec aac -ab 128k -ac 2 -ar 48000 -vcodec libx264 -vprofile baseline -level 30 -g 48 -b 520000 -threads 64 "%%~nv\%%~nv-360p.mp4"
+	ffmpeg -y -i "%%v" -s 854x480 -y -strict experimental -acodec aac -ab 128k -ac 2 -ar 48000 -vcodec libx264 -vprofile main -g 48 -b 1000000 -threads 64 "%%~nv\%%~nv-480p.mp4"
+	ffmpeg -y -i "%%v" -s 1280x720 -y -strict experimental -acodec aac -ab 128k -ac 2 -ar 48000 -vcodec libx264 -vprofile main -g 48 -b 1200000 -threads 64 "%%~nv\%%~nv-720p.mp4"
+)
+pause
