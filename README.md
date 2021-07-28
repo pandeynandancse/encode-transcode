@@ -1,4 +1,4 @@
-# encode-tramscode
+# encode-transcode
 
 Youtube Video tutorial: <br>
 Video : https://www.youtube.com/watch?v=hvankCY5bQs  <br>
